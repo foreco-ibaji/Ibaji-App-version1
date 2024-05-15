@@ -39,7 +39,7 @@ class CustomDioInterceptor extends Interceptor {
 
   // 2) 응답을 받을때
   @override
-  void onResponse(Response response, ResponseInterceptorHandler handler) {
+  void onResponse( response, ResponseInterceptorHandler handler) {
     logger.i(
         "<< [RESPONSE ${response.statusCode}] Url: ${response.requestOptions.uri} >>");
     logger.i("${response.statusMessage}");

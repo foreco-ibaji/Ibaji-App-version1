@@ -30,7 +30,7 @@ class GetStorageUtil {
   }
 
   ///* return : String
-  static Future<void> removeToken(StorageKey key, String token) async {
+  static Future<void> removeToken(StorageKey key) async {
     await storage.remove(key.name);
   }
 
