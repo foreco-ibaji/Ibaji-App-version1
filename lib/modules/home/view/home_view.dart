@@ -41,7 +41,7 @@ class HomeScreen extends GetView<HomeController> {
                           Get.to(() => const MapScreen());
                         }),
                         child: SvgPicture.asset(
-                          "asset/image/icon/ic_map_26.svg",
+                          "asset/image/icon/ic_map_24.svg",
                         ),
                       )
                     ],

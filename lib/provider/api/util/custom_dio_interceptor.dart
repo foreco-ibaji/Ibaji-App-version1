@@ -1,6 +1,11 @@
 import 'package:dio/dio.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:ibaji/provider/api/login_api.dart';
+import 'package:ibaji/provider/storage/get_storage_util.dart';
+import '../../../util/routes/routes.dart';
 import '../../../util/style/global_logger.dart';
-
 
 class CustomDioInterceptor extends Interceptor {
   // 1) 요청 보낼때
@@ -34,7 +39,7 @@ class CustomDioInterceptor extends Interceptor {
 
   // 2) 응답을 받을때
   @override
-  void onResponse(Response response, ResponseInterceptorHandler handler) {
+  void onResponse( response, ResponseInterceptorHandler handler) {
     logger.i(
         "<< [RESPONSE ${response.statusCode}] Url: ${response.requestOptions.uri} >>");
     logger.i("${response.statusMessage}");
@@ -48,10 +53,26 @@ class CustomDioInterceptor extends Interceptor {
 
   // 3) 에러가 났을때
   @override
-  void onError(DioException exception, ErrorInterceptorHandler handler) {
-    logger.e("Error ${exception.error}");
-    logger.e("Error Message ${exception.message}");
+  Future<void> onError(
+      DioException err, ErrorInterceptorHandler handler) async {
+    logger.e("Error ${err.error}");
+    logger.e("Error Message ${err.message}");
 
-    return super.onError(exception, handler);
+    if (err.type == DioExceptionType.connectionError ||
+        err.type == DioExceptionType.connectionTimeout ||
+        err.error == DioExceptionType.connectionError) {
+      Fluttertoast.showToast(msg: "api가 작동하지 않습니다(추후 에러메세지 수정예정)");
+    }
+    //TODO: 서버팀 확인필요
+    if (err.response?.statusCode == 401) {
+      var refreshToken =
+          await GetStorageUtil.getToken(StorageKey.REFRESH_TOKEN);
+      // handler.resolve(err.response);와 같이 요청을 저장 및 중단후, 다시 요청하는 로직 추가
+
+      refreshToken != null
+          ? await LoginApi.getNewToken(refreshToken)
+          : Get.offAllNamed(Routes.login);
+    }
+    return super.onError(err, handler);
   }
 }

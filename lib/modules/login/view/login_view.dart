@@ -6,6 +6,7 @@ import 'package:ibaji/modules/login/controller/login_controller.dart';
 import 'package:ibaji/util/app_text_styles.dart';
 import '../../../util/app_colors.dart';
 import '../../../util/global_variables.dart';
+import '../../../util/routes/routes.dart';
 
 class LoginScreen extends GetView<LoginController> {
   const LoginScreen({super.key});
@@ -23,7 +24,7 @@ class LoginScreen extends GetView<LoginController> {
             GestureDetector(
               onTap: () async {
                 await controller.signInWithKakao();
-
+                // Get.toNamed(Routes.main);
               },
               child: Container(
                 padding: EdgeInsets.symmetric(vertical: 14.h, horizontal: 16.w),

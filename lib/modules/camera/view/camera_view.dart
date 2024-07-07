@@ -97,10 +97,8 @@ class CameraScreen extends GetView<CameraScreenController> {
                       children: [
                         GestureDetector(
                             onTap: () async {
-                              if (await PermissionHandler()
-                                  .requestGallery(context)) {
-                                await Permission.storage.request();
-                              }
+                              PermissionHandler()
+                                  .checkPermission(Permission.storage);
                               var imgPath = await controller.imagePick();
                               await controller.getImgResult(imgPath);
                             },

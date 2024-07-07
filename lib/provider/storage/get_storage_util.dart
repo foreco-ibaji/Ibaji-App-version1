@@ -6,6 +6,7 @@ import 'package:ibaji/model/search_detail/search_detail.dart';
 
 enum StorageKey {
   JWT_TOKEN,
+  REFRESH_TOKEN,
   LATEST_SEARCH,
 }
 
@@ -26,6 +27,11 @@ class GetStorageUtil {
   ///* return : String
   static Future<void> setToken(StorageKey key, String token) async {
     await storage.write(key.name, token);
+  }
+
+  ///* return : String
+  static Future<void> removeToken(StorageKey key) async {
+    await storage.remove(key.name);
   }
 
   ///GetStorage에서 key에 해당하는 value를 설정해줌

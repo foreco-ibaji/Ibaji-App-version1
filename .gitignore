@@ -45,3 +45,4 @@ app.*.map.json
 
 #IOS
 ios/Secret.xcconfig
+ios/Runner/GoogleService-Info.plist

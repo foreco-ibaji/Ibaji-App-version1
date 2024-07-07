@@ -1,6 +1,7 @@
 import 'package:camera/camera.dart';
 import 'package:get/get.dart';
 import 'package:ibaji/modules/camera/controller/camera_controller.dart';
+import 'package:ibaji/util/permission_handler.dart';
 import 'package:logger/logger.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -10,11 +11,14 @@ class CameraService extends GetxService {
   List<CameraDescription> cameras = <CameraDescription>[].obs;
   Rx<CameraController>? cameraController;
   Rx<bool> _isImageStreaming = false.obs;
-  static void setImagePath(String tmpImgPath){
+
+  static void setImagePath(String tmpImgPath) {
     imgPath.value = tmpImgPath;
   }
+
   Future<void> initCamera() async {
-    if (await Permission.camera.request().isGranted) {
+    // if (await PermissionHandler().checkPermission(Permission.camera)) {
+    //TODO: 실제 기기로 테스트후, permission 관련 추가
       cameras = await availableCameras();
 
       cameraController = CameraController(
@@ -23,9 +27,9 @@ class CameraService extends GetxService {
         imageFormatGroup: ImageFormatGroup.jpeg,
       ).obs;
       await cameraController?.value.initialize();
-    } else {
-      Logger().d('d');
-    }
+    // } else {
+    //   PermissionHandler().requestPermission(Permission.camera);
+    // }
   }
 
   Future<XFile?> takePhoto() async {

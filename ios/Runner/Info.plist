@@ -2,6 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSCameraUsageDescription</key>
+	<string>카메라를 이용하여 어떤 쓰레기인지 알려드릴께요!</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+    <string>photos</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>현재 위치 주변의 특수폐기물 위치를 정보를 제공해주기 위해 사용합니다.</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>현재 위치 주변의 특수폐기물 위치를 정보를 제공해주기 위해 사용합니다.</string>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>현재 위치 주변의 특수폐기물 위치를 정보를 제공해주기 위해 사용합니다.</string>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
 	<key>CFBundleDevelopmentRegion</key>

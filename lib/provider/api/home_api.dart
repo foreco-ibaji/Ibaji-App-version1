@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:ibaji/provider/api/util/dio_services.dart';
 import 'package:ibaji/provider/api/util/secret_key.dart';
 import 'package:logger/logger.dart';
 
@@ -32,7 +33,7 @@ class HomeRepository {
   ) async {
     try {
       Response response =
-          await Dio().get(dotenv.env['apiUrl']! + "/trash", queryParameters: {
+          await DioServices().to().get("/trash", queryParameters: {
         'keyword': keyword,
       });
       Logger().d(response.data);
