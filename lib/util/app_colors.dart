@@ -25,4 +25,5 @@ class AppColors {
   static const Color territory = Color(0xFFF05542);
   static const Color borderLine = Color(0xffd9d9d9);
   static const Color kakao = Color(0xFFFEE500);
+  static const Color cF8F9F9 = Color(0xFFF8F9F9);
 }
