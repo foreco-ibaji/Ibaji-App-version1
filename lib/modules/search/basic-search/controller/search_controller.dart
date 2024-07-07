@@ -5,7 +5,8 @@ import 'package:ibaji/provider/api/home_api.dart';
 import 'package:ibaji/provider/storage/get_storage_util.dart';
 import 'package:ibaji/util/style/global_logger.dart';
 
-import '../../../model/trash/trash.dart';
+import '../../../../model/trash/trash.dart';
+
 
 class SearchViewController extends GetxController {
   Rx<TextEditingController> searchTextController = TextEditingController().obs;

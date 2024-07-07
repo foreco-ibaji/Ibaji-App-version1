@@ -7,8 +7,9 @@ import 'package:ibaji/modules/detail_method/view/detail_method_view.dart';
 import 'package:ibaji/provider/service/map_service.dart';
 import 'package:ibaji/util/app_text_styles.dart';
 
-import '../../../model/trash/trash.dart';
-import '../../../util/app_colors.dart';
+import '../../../../model/trash/trash.dart';
+import '../../../../util/app_colors.dart';
+
 
 /// 검색 결과를 나타내는 위젯
 class SearchResult extends StatelessWidget {

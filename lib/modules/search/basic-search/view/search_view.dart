@@ -3,13 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:ibaji/model/search_detail/search_detail.dart';
-import 'package:ibaji/modules/search/widget/search_bar.dart';
-import 'package:ibaji/modules/search/widget/search_group_widget.dart';
-import 'package:ibaji/modules/search/widget/search_result_widget.dart';
-
-import '../../../util/app_colors.dart';
-import '../../../util/app_text_styles.dart';
+import '../../../../util/app_colors.dart';
+import '../../../../util/app_text_styles.dart';
 import '../controller/search_controller.dart';
+import '../widget/search_bar.dart';
+import '../widget/search_group_widget.dart';
+import '../widget/search_result_widget.dart';
 
 class SearchScreen extends GetView<SearchViewController> {
   const SearchScreen({super.key});

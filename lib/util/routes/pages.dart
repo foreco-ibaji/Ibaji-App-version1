@@ -11,6 +11,8 @@ import 'package:ibaji/modules/mission_detail/binding/mission_detail_binding.dart
 import 'package:ibaji/modules/mission_detail/view/mission_detail_view.dart';
 import 'package:ibaji/modules/mypage/binding/my_page_binding.dart';
 import 'package:ibaji/modules/mypage/view/my_page_view.dart';
+import 'package:ibaji/modules/search/ai-search/ai_search_binding.dart';
+import 'package:ibaji/modules/search/ai-search/ai_search_view.dart';
 import 'package:ibaji/util/routes/routes.dart';
 import '../../modules/detail_method/view/detail_method_view.dart';
 import '../../modules/camera/binding/camera_binding.dart';
@@ -37,6 +39,15 @@ class Pages {
       page: () => const MainScreen(),
       transition: Transition.noTransition,
       binding: MainBinding(),
+      curve: Curves.easeIn,
+      popGesture: false,
+    ),
+    GetPage(
+      title: "검색 화면",
+      name: Routes.aiSearch,
+      page: () => const AiSearchView(),
+      transition: Transition.noTransition,
+      binding: AiSearchBinding(),
       curve: Curves.easeIn,
       popGesture: false,
     ),
