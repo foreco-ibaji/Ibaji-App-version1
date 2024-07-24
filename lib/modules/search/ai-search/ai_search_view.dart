@@ -8,6 +8,7 @@ import '../../../util/app_colors.dart';
 import '../../../util/widget/global_appbar.dart';
 import '../../../util/widget/global_text_field.dart';
 import 'ai_search_controller.dart';
+import 'views/chat_message_view.dart';
 import 'views/quick_search_chip.dart';
 
 class AiSearchView extends GetView<AiSearchController> {
@@ -22,19 +23,24 @@ class AiSearchView extends GetView<AiSearchController> {
         ),
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: 24.w),
-          child:
-              Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-            controller.isInitSearch.value ? aiStartView() : aiSearchView(),
-            GlobalSearchField.aiSearch(
-              textController: controller.textController,
-              textStatus: controller.searchStatus,
-              onSubmit: controller.onSubmitted,
-              onChange: controller.onChange,
-            ),
-            SizedBox(
-              height: 40.w,
-            ),
-          ]),
+          child: Obx(
+            () => Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  controller.isInitSearch.value
+                      ? Expanded(child: aiStartView())
+                      : aiSearchView(),
+                  GlobalSearchField.aiSearch(
+                    textController: controller.textController,
+                    textStatus: controller.searchStatus,
+                    onSubmit: controller.onSubmitted,
+                    onChange: controller.onChange,
+                  ),
+                  SizedBox(
+                    height: 40.w,
+                  ),
+                ]),
+          ),
         ),
       ),
     );
@@ -85,8 +91,18 @@ class AiSearchView extends GetView<AiSearchController> {
 
   Widget aiSearchView() {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [],
+      children: List.generate(controller.chats.length, (index) {
+        final chat = controller.chats[index];
+        if (chat.fromUser == true) {
+          return Container(
+              alignment: Alignment.centerRight,
+              child: MessageView.mine(chat.message));
+        } else {
+          return Container(
+              alignment: Alignment.centerLeft,
+              child: MessageView.ai(chat.message));
+        }
+      }),
     );
   }
 }

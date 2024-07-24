@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:ibaji/util/widget/global_text_field.dart';
 
+import '../../../model/chat/chat.dart';
+
 enum AiQuickSearchType {
   food('음식물이 묻은 비닐은 어떻게 버려야해?', "Clam"),
   tape('카세트 테이프 배출법 알려줘', 'Tape'),
@@ -27,10 +29,19 @@ enum AiQuickChip {
 class AiSearchController extends GetxController {
   final Rx<SEARCH_STATUS> searchStatus = SEARCH_STATUS.INIT.obs;
   final TextEditingController textController = TextEditingController();
-  final RxBool isInitSearch = false.obs;
+   RxBool get isInitSearch  => chats.value.isEmpty.obs;
+  final RxBool isLoading = false.obs;
+  final RxList<Chat> chats = <Chat>[].obs;
 
   Future<void> onSubmitted(String value) async {
-    isInitSearch.value = true;
+    isLoading.value = true;
+    var chat = Chat(
+      id: DateTime.now().millisecondsSinceEpoch,
+      message: value,
+      fromUser: true,
+    );
+    chats.add(chat);
+    isLoading.value = false;
   }
 
   Future<void> onChange(String value) async {
