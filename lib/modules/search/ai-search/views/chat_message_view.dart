@@ -26,7 +26,7 @@ class MessageView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       constraints: BoxConstraints(
-        maxWidth: 200.w,
+        maxWidth: 300.w,
       ),
       padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 16.w),
       margin: EdgeInsets.symmetric(vertical: 12.w),

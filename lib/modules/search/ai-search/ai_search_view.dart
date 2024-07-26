@@ -29,7 +29,7 @@ class AiSearchView extends GetView<AiSearchController> {
                 children: [
                   controller.isInitSearch.value
                       ? Expanded(child: aiStartView())
-                      : aiSearchView(),
+                      : Expanded(child: aiSearchView()),
                   GlobalSearchField.aiSearch(
                     textController: controller.textController,
                     textStatus: controller.searchStatus,
@@ -90,8 +90,10 @@ class AiSearchView extends GetView<AiSearchController> {
   }
 
   Widget aiSearchView() {
-    return Column(
-      children: List.generate(controller.chats.length, (index) {
+    return ListView.builder(
+      controller: controller.scrollController,
+      itemCount: controller.chats.length,
+      itemBuilder: (context, index) {
         final chat = controller.chats[index];
         if (chat.fromUser == true) {
           return Container(
@@ -102,7 +104,7 @@ class AiSearchView extends GetView<AiSearchController> {
               alignment: Alignment.centerLeft,
               child: MessageView.ai(chat.message));
         }
-      }),
+      },
     );
   }
 }

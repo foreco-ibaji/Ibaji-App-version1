@@ -7,9 +7,9 @@ part of 'chat.dart';
 // **************************************************************************
 
 _$ChatImpl _$$ChatImplFromJson(Map<String, dynamic> json) => _$ChatImpl(
-      id: json['id'] as int,
+      id: json['id'] as String,
       message: json['message'] as String,
-      created: json['created'] as String?,
+      created: json['created'] as int?,
       fromUser: json['fromUser'] as bool?,
     );
 

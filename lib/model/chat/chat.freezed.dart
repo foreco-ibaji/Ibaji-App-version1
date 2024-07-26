@@ -20,9 +20,9 @@ Chat _$ChatFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Chat {
-  int get id => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
   String get message => throw _privateConstructorUsedError;
-  String? get created => throw _privateConstructorUsedError;
+  int? get created => throw _privateConstructorUsedError;
   bool? get fromUser => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,7 +35,7 @@ abstract class $ChatCopyWith<$Res> {
   factory $ChatCopyWith(Chat value, $Res Function(Chat) then) =
       _$ChatCopyWithImpl<$Res, Chat>;
   @useResult
-  $Res call({int id, String message, String? created, bool? fromUser});
+  $Res call({String id, String message, int? created, bool? fromUser});
 }
 
 /// @nodoc
@@ -60,7 +60,7 @@ class _$ChatCopyWithImpl<$Res, $Val extends Chat>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -68,7 +68,7 @@ class _$ChatCopyWithImpl<$Res, $Val extends Chat>
       created: freezed == created
           ? _value.created
           : created // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       fromUser: freezed == fromUser
           ? _value.fromUser
           : fromUser // ignore: cast_nullable_to_non_nullable
@@ -84,7 +84,7 @@ abstract class _$$ChatImplCopyWith<$Res> implements $ChatCopyWith<$Res> {
       __$$ChatImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, String message, String? created, bool? fromUser});
+  $Res call({String id, String message, int? created, bool? fromUser});
 }
 
 /// @nodoc
@@ -106,7 +106,7 @@ class __$$ChatImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -114,7 +114,7 @@ class __$$ChatImplCopyWithImpl<$Res>
       created: freezed == created
           ? _value.created
           : created // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       fromUser: freezed == fromUser
           ? _value.fromUser
           : fromUser // ignore: cast_nullable_to_non_nullable
@@ -133,11 +133,11 @@ class _$ChatImpl implements _Chat {
       _$$ChatImplFromJson(json);
 
   @override
-  final int id;
+  final String id;
   @override
   final String message;
   @override
-  final String? created;
+  final int? created;
   @override
   final bool? fromUser;
 
@@ -178,19 +178,19 @@ class _$ChatImpl implements _Chat {
 
 abstract class _Chat implements Chat {
   const factory _Chat(
-      {required final int id,
+      {required final String id,
       required final String message,
-      final String? created,
+      final int? created,
       final bool? fromUser}) = _$ChatImpl;
 
   factory _Chat.fromJson(Map<String, dynamic> json) = _$ChatImpl.fromJson;
 
   @override
-  int get id;
+  String get id;
   @override
   String get message;
   @override
-  String? get created;
+  int? get created;
   @override
   bool? get fromUser;
   @override

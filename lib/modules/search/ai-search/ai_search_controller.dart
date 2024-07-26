@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:ibaji/provider/api/chat_api.dart';
 import 'package:ibaji/util/widget/global_text_field.dart';
 
 import '../../../model/chat/chat.dart';
@@ -29,19 +30,27 @@ enum AiQuickChip {
 class AiSearchController extends GetxController {
   final Rx<SEARCH_STATUS> searchStatus = SEARCH_STATUS.INIT.obs;
   final TextEditingController textController = TextEditingController();
-   RxBool get isInitSearch  => chats.value.isEmpty.obs;
+
+  RxBool get isInitSearch => chats.value.isEmpty.obs;
   final RxBool isLoading = false.obs;
   final RxList<Chat> chats = <Chat>[].obs;
+  final ScrollController scrollController = ScrollController();
 
   Future<void> onSubmitted(String value) async {
     isLoading.value = true;
     var chat = Chat(
-      id: DateTime.now().millisecondsSinceEpoch,
+      id: '1',
       message: value,
       fromUser: true,
     );
     chats.add(chat);
+    getChat(value);
     isLoading.value = false;
+  }
+
+  void getChat(String msg) async {
+    var chat = await ChatRepository.getChat(msg);
+    chats.add(chat);
   }
 
   Future<void> onChange(String value) async {
@@ -51,5 +60,16 @@ class AiSearchController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+  }
+
+  @override
+  void onReady() {
+    super.onReady();
+    scrollController.addListener(() {
+      if (!scrollController.position.atEdge) {
+        scrollController.animateTo(scrollController.position.maxScrollExtent,
+            duration: Duration(seconds: 2), curve: Curves.easeIn);
+      }
+    });
   }
 }

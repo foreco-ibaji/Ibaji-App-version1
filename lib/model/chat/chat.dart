@@ -8,9 +8,9 @@ part 'chat.g.dart';
 @freezed
 class Chat with _$Chat {
   const factory Chat({
-    required int id,
+    required String id,
     required String message,
-    String? created,
+    int? created,
     bool? fromUser,
   }) = _Chat;
 
