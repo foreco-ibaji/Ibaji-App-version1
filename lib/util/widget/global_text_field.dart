@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:ibaji/resources/resources.dart';
 
 import '../app_colors.dart';
 import '../app_text_styles.dart';
@@ -62,11 +63,11 @@ class GlobalSearchField extends StatelessWidget {
                       Get.back();
                     },
                     child: SvgPicture.asset(
-                      iconDir + "ic_arrow_left_24.svg",
+                      Svgs.icArrowLeft14,
                       width: 24.w,
                     )),
               )
-            : SizedBox.shrink(),
+            : const SizedBox.shrink(),
         Expanded(
           child: CupertinoTextField(
             controller: textController,
@@ -92,7 +93,10 @@ class GlobalSearchField extends StatelessWidget {
             prefix: hasPrefix
                 ? Padding(
                     padding: EdgeInsets.only(left: 14.w),
-                    child: SvgPicture.asset("${iconDir}ic_search_16.svg"))
+                    child: SvgPicture.asset(
+                      Svgs.icSearch24,
+                    ),
+                  )
                 : null,
             // clearButtonMode: OverlayVisibilityMode.editing,
             suffixMode: !alwaysSuffix
@@ -110,8 +114,7 @@ class GlobalSearchField extends StatelessWidget {
               child: Obx(
                 () => Padding(
                     padding: EdgeInsets.only(right: 14.w),
-                    child: SvgPicture.asset(
-                        "${iconDir}$suffixActiveIcon.svg",
+                    child: SvgPicture.asset(suffixActiveIcon,
                         color: textStatus.value == SEARCH_STATUS.INIT
                             ? AppColors.grey1
                             : AppColors.primary6)),
@@ -149,7 +152,7 @@ class GlobalSearchField extends StatelessWidget {
       placeHolder: "헷갈리는 쓰레기 배출법을 질문해보세요",
       alwaysSuffix: true,
       hasPrefix: false,
-      suffixActiveIcon: "send",
+      suffixActiveIcon: Svgs.send,
       onSubmitted: onSubmit,
       onChanged: onChange,
       textStatus: textStatus,

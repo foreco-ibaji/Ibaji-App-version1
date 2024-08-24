@@ -11,6 +11,8 @@ import 'package:ibaji/modules/mission_detail/binding/mission_detail_binding.dart
 import 'package:ibaji/modules/mission_detail/view/mission_detail_view.dart';
 import 'package:ibaji/modules/mypage/binding/my_page_binding.dart';
 import 'package:ibaji/modules/mypage/view/my_page_view.dart';
+import 'package:ibaji/modules/onboarding/onboarding_binding.dart';
+import 'package:ibaji/modules/onboarding/onboarding_screen.dart';
 import 'package:ibaji/modules/search/ai-search/ai_search_binding.dart';
 import 'package:ibaji/modules/search/ai-search/ai_search_view.dart';
 import 'package:ibaji/util/routes/routes.dart';
@@ -24,6 +26,16 @@ import '../../modules/map/view/map_view.dart';
 
 class Pages {
   static final routes = [
+
+    GetPage(
+      title: "온보딩 화면",
+      name: Routes.onboarding,
+      page: () => const OnboardingScreen(),
+      transition: Transition.noTransition,
+      binding: OnboardingBinding(),
+      curve: Curves.easeIn,
+      popGesture: false,
+    ),
     GetPage(
       title: "로그인 화면",
       name: Routes.login,

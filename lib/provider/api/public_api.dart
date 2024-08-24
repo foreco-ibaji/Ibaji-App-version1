@@ -13,6 +13,7 @@ import 'package:ibaji/provider/api/util/secret_key.dart';
 import 'package:logger/logger.dart';
 
 import '../../modules/map/widget/map_widget.dart';
+import '../../resources/resources.dart';
 import '../../util/style/global_logger.dart';
 import '../service/map_service.dart';
 
@@ -65,7 +66,7 @@ class PublicApi {
               LatLng(double.parse(i['위도']), double.parse(i['경도'])));
           Get.bottomSheet(MapBottomContainer(
             type: "의류",
-            iconUrl: 'cloth',
+            iconUrl: Svgs.ivCloth48,
             address: i['주소'],
             distance: walkDur['distance'] ?? 0,
             duration: walkDur['duration'] ?? 0,
@@ -124,7 +125,7 @@ class PublicApi {
           Logger().d(result);
           Get.bottomSheet(MapBottomContainer(
             type: "폐건전지/형광등",
-            iconUrl: 'bolt',
+            iconUrl: Svgs.ivBolt48,
             address: i['설치주소'],
             distance: walkDur['distance'] ?? 0,
             duration: walkDur['duration'] ?? 0,

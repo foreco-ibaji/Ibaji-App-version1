@@ -10,6 +10,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:ibaji/modules/login/binding/login_binding.dart';
 import 'package:ibaji/modules/main/binding/main_binding.dart';
+import 'package:ibaji/modules/onboarding/onboarding_binding.dart';
 import 'package:ibaji/util/app_colors.dart';
 import 'package:kakao_flutter_sdk_user/kakao_flutter_sdk_user.dart';
 import 'package:logger/logger.dart';
@@ -24,6 +25,7 @@ void main() async {
       onAuthFailed: (error) {
         Logger().d('Auth failed: $error');
       });
+
   /// * GetStorage 초기화
   await GetStorage.init();
 
@@ -65,8 +67,8 @@ class MyApp extends StatelessWidget {
             GlobalMaterialLocalizations.delegate,
             GlobalCupertinoLocalizations.delegate
           ],
-          initialRoute: "/login",
-          initialBinding: LoginBinding(),
+          initialRoute: "/onboarding",
+          initialBinding: OnboardingBinding(),
           smartManagement: SmartManagement.full,
           navigatorKey: Get.key,
         );
@@ -74,6 +76,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
 class NoCheckCertificateHttpOverrides extends HttpOverrides {
   @override
   HttpClient createHttpClient(SecurityContext? context) {

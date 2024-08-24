@@ -9,6 +9,8 @@ import 'package:ibaji/util/app_colors.dart';
 import 'package:ibaji/util/app_text_styles.dart';
 import 'package:ibaji/util/global_variables.dart';
 
+import '../../../resources/resources.dart';
+
 class MyPageScreen extends GetView<MyPageController> {
   const MyPageScreen({super.key});
 
@@ -39,7 +41,7 @@ class MyPageScreen extends GetView<MyPageController> {
               height: 24.h,
             ),
             const ShoppingButton(
-              iconUrl: "${iconDir}ic_basket.svg",
+              iconUrl: Svgs.icBasket,
               title: "쇼핑하기",
               content: "위즈 머니로 원하는 상품을 교환해보세요!",
             ),

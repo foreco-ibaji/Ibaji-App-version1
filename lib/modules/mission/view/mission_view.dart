@@ -10,6 +10,7 @@ import 'package:ibaji/modules/mission/widget/mission_widget.dart';
 import 'package:ibaji/provider/service/map_service.dart';
 import 'package:ibaji/util/app_text_styles.dart';
 import '../../../provider/api/mission_api.dart';
+import '../../../resources/resources.dart';
 import '../../../util/app_colors.dart';
 import '../../../util/global_variables.dart';
 import '../../../util/widget/global_chip.dart';
@@ -101,7 +102,8 @@ class MissionScreen extends GetView<MissionController> {
                                   width: 6.w,
                                 ),
                                 SvgPicture.asset(
-                                    iconDir + "ic_mission_money.svg")
+                                  Svgs.icMissionMoney,
+                                )
                               ]),
                         ],
                       )),
@@ -138,10 +140,12 @@ class MissionScreen extends GetView<MissionController> {
                   Row(
                     children: [
                       GestureDetector(
-                        onTap:()async{
+                        onTap: () async {
                           controller.isAll.value = true;
-                          controller.wizMissions.assignAll(await MissionApi.getMissionList());
-                          controller.socialMissions.assignAll(await MissionApi.getMissionList(kind: "ETC"));
+                          controller.wizMissions
+                              .assignAll(await MissionApi.getMissionList());
+                          controller.socialMissions.assignAll(
+                              await MissionApi.getMissionList(kind: "ETC"));
                         },
                         child: SelectTypeChip(
                           value: "전체",
@@ -169,8 +173,9 @@ class MissionScreen extends GetView<MissionController> {
                         child: SelectTypeChip(
                             value:
                                 "난이도 ${controller.currentLevel?.value.stateName ?? "순"}",
-                            isSelect:
-                                controller.currentLevel == null ? false.obs : true.obs,
+                            isSelect: controller.currentLevel == null
+                                ? false.obs
+                                : true.obs,
                             isIcon: true),
                       )
                     ],

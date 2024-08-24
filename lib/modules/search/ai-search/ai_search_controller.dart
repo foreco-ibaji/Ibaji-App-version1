@@ -8,12 +8,13 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../../model/chat/chat.dart';
 import '../../../provider/api/util/secret_key.dart';
 import '../../../provider/service/map_service.dart';
+import '../../../resources/resources.dart';
 
 enum AiQuickSearchType {
-  food('음식물이 묻은 비닐은 어떻게 버려야해?', "Clam"),
-  tape('카세트 테이프 배출법 알려줘', 'Tape'),
-  bowl('도자기는 어떻게 버려?', 'Bowl'),
-  bigTrash('우리 동네 대형폐기물 수거 업체 알려줘', 'taxi');
+  food('음식물이 묻은 비닐은 어떻게 버려야해?', Svgs.clam),
+  tape('카세트 테이프 배출법 알려줘', Svgs.tape),
+  bowl('도자기는 어떻게 버려?', Svgs.bowl),
+  bigTrash('우리 동네 대형폐기물 수거 업체 알려줘', Svgs.taxi);
 
   final String value;
   final String iconUrl;
@@ -23,7 +24,7 @@ enum AiQuickSearchType {
 
 enum AiQuickChip {
   // trash('오늘의 배출 쓰레기', "Trash"),
-  link('동대문 대형 폐기물 신고하러가기', 'Link');
+  link('동대문 대형 폐기물 신고하러가기', Svgs.link);
 
   final String value;
   final String iconUrl;

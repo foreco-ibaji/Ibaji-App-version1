@@ -8,6 +8,8 @@ import 'package:get/get.dart';
 import 'package:ibaji/util/app_colors.dart';
 import 'package:ibaji/util/app_text_styles.dart';
 
+import '../../../resources/resources.dart';
+
 class MapBottomContainer extends StatelessWidget {
   final String type;
   final String iconUrl;
@@ -48,7 +50,7 @@ class MapBottomContainer extends StatelessWidget {
           ),
           Row(
             children: [
-              SvgPicture.asset("asset/image/object/map/iv_${iconUrl}_48.svg"),
+              SvgPicture.asset(iconUrl),
               SizedBox(
                 width: 12.w,
               ),
@@ -93,6 +95,7 @@ class InformChip extends StatelessWidget {
   final String iconUrl;
   final String text;
   final double maxWidth;
+
   const InformChip(
       {super.key,
       required this.iconUrl,
@@ -111,7 +114,7 @@ class InformChip extends StatelessWidget {
       ),
       child: Row(
         children: [
-          SvgPicture.asset("asset/image/object/map/ic_${iconUrl}_16.svg"),
+          SvgPicture.asset(iconUrl),
           SizedBox(
             width: 5.5.w,
           ),
@@ -132,14 +135,15 @@ class InformChip extends StatelessWidget {
 
   factory InformChip.location({required int disatnce}) {
     return InformChip(
-      iconUrl: "location_pin",
+      iconUrl: Svgs.icLocationPin16,
       text: "현재 위치에서 ${disatnce}m",
       maxWidth: 158.w,
     );
   }
+
   factory InformChip.walk({required int duration}) {
     return InformChip(
-      iconUrl: "walk",
+      iconUrl: Svgs.icWalk16,
       text: "걸어서 ${duration}분",
       maxWidth: 120.w,
     );
@@ -149,6 +153,7 @@ class InformChip extends StatelessWidget {
 class MapTypeChip extends StatelessWidget {
   final bool isSelected;
   final String text;
+
   const MapTypeChip({super.key, required this.isSelected, required this.text});
 
   @override

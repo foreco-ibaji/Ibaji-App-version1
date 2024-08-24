@@ -12,7 +12,10 @@ class QuickSearchSection extends StatelessWidget {
   final VoidCallback onTap;
 
   const QuickSearchSection(
-      {super.key, required this.keyword, required this.iconUrl, required this.onTap});
+      {super.key,
+      required this.keyword,
+      required this.iconUrl,
+      required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +36,7 @@ class QuickSearchSection extends StatelessWidget {
               decoration: BoxDecoration(
                   color: AppColors.primary2, shape: BoxShape.circle),
               child: SvgPicture.asset(
-                "$iconDir${iconUrl}.svg",
+                iconUrl,
                 height: 24.w,
               ),
             ),

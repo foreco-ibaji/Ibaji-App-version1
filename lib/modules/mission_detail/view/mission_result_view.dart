@@ -5,6 +5,7 @@ import 'package:ibaji/model/mission_detail/mission_detail.dart';
 import 'package:ibaji/util/app_text_styles.dart';
 import 'package:ibaji/util/global_button_widget.dart';
 import 'package:ibaji/util/global_variables.dart';
+import '../../../resources/resources.dart';
 import '../../../util/app_colors.dart';
 import '../../../util/routes/routes.dart';
 
@@ -52,7 +53,7 @@ class MissionResultScreen extends StatelessWidget {
                   width: 3.5.w,
                 ),
                 Image.asset(
-                  "${iconDir}ic_mission_${isSuccess ? "success" : "failure"}.png",
+                  isSuccess ? Images.icMissionSuccess : Images.icMissionFailure,
                   width: 28.w,
                 )
               ],

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:ibaji/resources/resources.dart';
 import 'package:ibaji/util/app_colors.dart';
 import 'package:ibaji/util/app_text_styles.dart';
 import 'package:ibaji/util/global_variables.dart';
@@ -51,7 +52,7 @@ class CommonAppBar2 extends AppBar {
           child: Container(
             padding: EdgeInsets.all(10.w) + EdgeInsets.only(left: 18.w),
             child: SvgPicture.asset(
-              leadingIcon ?? "${iconDir}ic_arrow_left_14.svg",
+              leadingIcon ?? Svgs.icArrowLeft14,
             ),
           ),
         ),
