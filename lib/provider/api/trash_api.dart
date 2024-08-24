@@ -14,7 +14,7 @@ class TrashRepository {
     try {
       // 다른 필요한 데이터가 있다면 추가
       Response response =
-          await DioServices().to().get("/trash", queryParameters: {
+          await DioServices().to().get("/trash/detail", queryParameters: {
         'id': id,
       });
 

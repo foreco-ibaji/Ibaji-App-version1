@@ -7,6 +7,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../../../model/chat/chat.dart';
 import '../../../provider/api/util/secret_key.dart';
+import '../../../provider/service/map_service.dart';
 
 enum AiQuickSearchType {
   food('음식물이 묻은 비닐은 어떻게 버려야해?', "Clam"),
@@ -62,9 +63,17 @@ class AiSearchController extends GetxController {
   }
 
   void getChat(String msg) async {
-    var chat = await ChatRepository.getChat(msg);
-    addChat(chat);
-    moveScroll();
+    String? region;
+    if (MapService.currentAddress[1] == "송파구") {
+      region = MapService.currentAddress[2];
+    }
+    region = "가락본동";
+
+    var chat = await ChatRepository.getChat(msg, region);
+    if (chat != null) {
+      addChat(chat);
+      moveScroll();
+    }
   }
 
   void moveScroll() {
