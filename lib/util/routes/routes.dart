@@ -21,6 +21,7 @@ abstract class Routes {
 
   /// 지도
   static const map = _Paths.map;
+  static const aiSearch = _Paths.aiSearch;
 
   /// 미션 화면
   static const mission = _Paths.mission;
@@ -64,4 +65,5 @@ abstract class _Paths {
 
   /// 마이페이지
   static const mypage = "/mypage";
+  static const aiSearch = "/ai_search";
 }

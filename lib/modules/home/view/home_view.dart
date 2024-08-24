@@ -1,13 +1,16 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:ibaji/modules/map/view/map_view.dart';
-import 'package:ibaji/modules/search/binding/search_binding.dart';
-import 'package:ibaji/modules/search/view/search_view.dart';
 import 'package:ibaji/util/app_colors.dart';
 import 'package:ibaji/util/app_text_styles.dart';
 import '../../../provider/service/map_service.dart';
+import '../../../util/global_variables.dart';
+import '../../../util/routes/routes.dart';
+import '../../search/basic-search/binding/search_binding.dart';
+import '../../search/basic-search/view/search_view.dart';
 import '../controller/home_controller.dart';
 
 class HomeScreen extends GetView<HomeController> {
@@ -91,7 +94,7 @@ class HomeScreen extends GetView<HomeController> {
                     ),
                   ),
                   SizedBox(
-                    height: 86.h,
+                    height: 50.h,
                   ),
                   //*2. 위치 정보 section
                   RichText(
@@ -156,6 +159,37 @@ class HomeScreen extends GetView<HomeController> {
                   SizedBox(
                     height: 60.h,
                   ),
+                  GestureDetector(
+                    onTap: () {
+                      Get.toNamed(Routes.aiSearch);
+                    },
+                    child: Container(
+                      padding: EdgeInsets.symmetric(
+                          vertical: 23.w, horizontal: 16.w),
+                      decoration: BoxDecoration(
+                          color: AppColors.cF8F9F9,
+                          borderRadius: BorderRadius.circular(8)),
+                      child: Row(
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text("위즈 AI",
+                                  style: AppTextStyles.title2Bold
+                                      .copyWith(color: AppColors.grey9)),
+                              Text(
+                                "알기 어려운 특수 쓰레기 배출법을 빠르게",
+                                style: AppTextStyles.title3SemiBold.copyWith(
+                                  color: AppColors.grey7,
+                                ),
+                              )
+                            ],
+                          ),
+                          SvgPicture.asset("${iconDir}Search.svg"),
+                        ],
+                      ),
+                    ),
+                  )
                 ],
               ),
             ),
