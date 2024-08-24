@@ -6,7 +6,7 @@ import 'package:ibaji/provider/storage/get_storage_util.dart';
 import 'package:ibaji/util/style/global_logger.dart';
 
 import '../../../../model/trash/trash.dart';
-
+import '../../../../util/routes/routes.dart';
 
 class SearchViewController extends GetxController {
   Rx<TextEditingController> searchTextController = TextEditingController().obs;
@@ -68,13 +68,14 @@ class SearchViewController extends GetxController {
   }
 
   void onRemoveLatestItem(int index) {
-    logger.d("onRemove($index) Called");
-    List<SearchDetail> current = latestSearches;
-
-    current.removeAt(index);
-
-    latestSearches.value = current.obs;
-    GetStorageUtil.setLatestSearches(current);
+    Get.toNamed(Routes.detail, arguments: {'id': 1});
+    // logger.d("onRemove($index) Called");
+    // List<SearchDetail> current = latestSearches;
+    //
+    // current.removeAt(index);
+    //
+    // latestSearches.value = current.obs;
+    // GetStorageUtil.setLatestSearches(current);
   }
 
   //TODO 검색어 자동완성 하드코딩

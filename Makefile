@@ -8,4 +8,4 @@ DART := $(FLUTTER_BIN_DIR)/cache/dart-sdk/bin/dart
 
 buildRunner:
 	@echo "Run Pub build runner"
-	@${FLUTTER} packages pub run build_runner build --delete-conflicting-outputs
+	@dart run build_runner build --delete-conflicting-outputs
