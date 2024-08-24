@@ -1,27 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:ibaji/modules/onboarding/onboarding_controller.dart';
+import 'package:ibaji/modules/onboarding/live_type/live_type_controller.dart';
 import 'package:ibaji/util/app_colors.dart';
 import 'package:ibaji/util/app_text_styles.dart';
 import 'package:ibaji/util/global_variables.dart';
 
-import '../../util/global_button_widget.dart';
+import '../../../util/global_button_widget.dart';
 
-class OnboardingScreen extends GetView<OnboardingController> {
-  const OnboardingScreen({super.key});
+class LiveTypeScreen extends GetView<LiveTypeController> {
+  const LiveTypeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-        floatingActionButton: Container(
-          height: 52.w,
-          padding: EdgeInsets.symmetric(horizontal: 16.w),
-          child: GlobalButton.primary6(
-            onTap: controller.goNextOnboardingStep,
-            isActive: controller.selectType.value != null,
+        floatingActionButton: Obx(
+          () => Container(
+            height: 52.w,
+            padding: EdgeInsets.symmetric(horizontal: 16.w),
+            child: GlobalButton.primary6(
+              onTap: controller.goNextOnboardingStep,
+              isActive: controller.selectType.value != null,
+              text: "다음",
+            ),
           ),
         ),
         body: Padding(
@@ -53,12 +56,12 @@ class OnboardingScreen extends GetView<OnboardingController> {
               Row(
                 children: [
                   Expanded(
-                      child: Obx(() => _residentTypeItem(ResidentType.single))),
+                      child: Obx(() => _residentTypeItem(LiveType.single))),
                   SizedBox(width: 10.w),
                   Expanded(
                     child: Obx(
                       () => _residentTypeItem(
-                        ResidentType.multiple,
+                        LiveType.multiple,
                       ),
                     ),
                   ),
@@ -71,9 +74,9 @@ class OnboardingScreen extends GetView<OnboardingController> {
     );
   }
 
-  Widget _residentTypeItem(ResidentType type) {
+  Widget _residentTypeItem(LiveType type) {
     return GestureDetector(
-      onTap: () => controller.setResidentType(type),
+      onTap: () => controller.setLiveType(type),
       child: Container(
           height: 250.w,
           padding: EdgeInsets.symmetric(horizontal: 16.w)

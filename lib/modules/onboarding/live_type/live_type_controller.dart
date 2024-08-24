@@ -1,20 +1,21 @@
 import 'package:get/get.dart';
 import 'package:ibaji/resources/resources.dart';
 
-import '../../util/routes/routes.dart';
+import '../../../util/routes/routes.dart';
 
-class OnboardingController extends GetxController {
-  Rx<ResidentType?> selectType = Rxn(null);
+class LiveTypeController extends GetxController {
+  Rx<LiveType?> selectType = Rxn(null);
 
   void goNextOnboardingStep() {
-    Get.toNamed(Routes.login);
+    Get.toNamed(Routes.address, arguments: selectType.value?.fieldName);
   }
-  void setResidentType(ResidentType type) {
+
+  void setLiveType(LiveType type) {
     selectType.value = type;
   }
 }
 
-enum ResidentType {
+enum LiveType {
   single(
     fieldName: "single",
     title: "단독 주택",
@@ -33,7 +34,7 @@ enum ResidentType {
   final String subtitle;
   final String imgUrl;
 
-  const ResidentType(
+  const LiveType(
       {required this.fieldName,
       required this.title,
       required this.subtitle,

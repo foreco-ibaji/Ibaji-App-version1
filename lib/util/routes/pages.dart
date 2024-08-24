@@ -11,8 +11,10 @@ import 'package:ibaji/modules/mission_detail/binding/mission_detail_binding.dart
 import 'package:ibaji/modules/mission_detail/view/mission_detail_view.dart';
 import 'package:ibaji/modules/mypage/binding/my_page_binding.dart';
 import 'package:ibaji/modules/mypage/view/my_page_view.dart';
-import 'package:ibaji/modules/onboarding/onboarding_binding.dart';
-import 'package:ibaji/modules/onboarding/onboarding_screen.dart';
+import 'package:ibaji/modules/onboarding/address/address_binding.dart';
+import 'package:ibaji/modules/onboarding/address/address_screen.dart';
+import 'package:ibaji/modules/onboarding/live_type/live_type_binding.dart';
+import 'package:ibaji/modules/onboarding/live_type/live_type_screen.dart';
 import 'package:ibaji/modules/search/ai-search/ai_search_binding.dart';
 import 'package:ibaji/modules/search/ai-search/ai_search_view.dart';
 import 'package:ibaji/util/routes/routes.dart';
@@ -28,11 +30,20 @@ class Pages {
   static final routes = [
 
     GetPage(
-      title: "온보딩 화면",
-      name: Routes.onboarding,
-      page: () => const OnboardingScreen(),
+      title: "온보딩 화면(1)",
+      name: Routes.liveType,
+      page: () => const LiveTypeScreen(),
       transition: Transition.noTransition,
-      binding: OnboardingBinding(),
+      binding: LiveTypeBinding(),
+      curve: Curves.easeIn,
+      popGesture: false,
+    ),
+    GetPage(
+      title: "온보딩 화면(2)",
+      name: Routes.address,
+      page: () => const AddressScreen(),
+      transition: Transition.noTransition,
+      binding: AddressBinding(),
       curve: Curves.easeIn,
       popGesture: false,
     ),

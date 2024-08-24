@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:ibaji/provider/api/util/secret_key.dart';
 import 'package:ibaji/util/app_colors.dart';
 import 'package:ibaji/util/app_text_styles.dart';
@@ -140,13 +141,21 @@ class GlobalButton extends StatelessWidget {
   }
 
   factory GlobalButton.primary6(
-      {required bool isActive, required VoidCallback onTap}) {
+      {required bool isActive,
+      required VoidCallback onTap,
+      required String text}) {
     return GlobalButton(
-        text: "다음",
+        text: text,
         textStyle: AppTextStyles.title2Bold.copyWith(color: AppColors.white),
         horizontalPadding: 30,
         verticalPadding: 14,
         backgroundColor: isActive ? AppColors.primary6 : AppColors.grey3,
-        onTap: () async => onTap);
+        onTap: isActive
+            ? () async {
+                onTap();
+              }
+            : () async {
+                Fluttertoast.showToast(msg: "거주형태를 선택해주세요");
+              });
   }
 }

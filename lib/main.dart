@@ -10,8 +10,9 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:ibaji/modules/login/binding/login_binding.dart';
 import 'package:ibaji/modules/main/binding/main_binding.dart';
-import 'package:ibaji/modules/onboarding/onboarding_binding.dart';
+import 'package:ibaji/modules/onboarding/live_type/live_type_binding.dart';
 import 'package:ibaji/util/app_colors.dart';
+import 'package:ibaji/util/routes/routes.dart';
 import 'package:kakao_flutter_sdk_user/kakao_flutter_sdk_user.dart';
 import 'package:logger/logger.dart';
 import 'util/routes/pages.dart';
@@ -67,8 +68,8 @@ class MyApp extends StatelessWidget {
             GlobalMaterialLocalizations.delegate,
             GlobalCupertinoLocalizations.delegate
           ],
-          initialRoute: "/onboarding",
-          initialBinding: OnboardingBinding(),
+          initialRoute: Routes.liveType,
+          initialBinding: LiveTypeBinding(),
           smartManagement: SmartManagement.full,
           navigatorKey: Get.key,
         );

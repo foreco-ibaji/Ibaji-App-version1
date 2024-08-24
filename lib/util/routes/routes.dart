@@ -2,7 +2,8 @@ abstract class Routes {
   Routes._();
 
   /// 스플래시 화면(onboarding)
-  static const onboarding = _Paths.onboarding;
+  static const liveType = _Paths.liveType;
+  static const address = _Paths.address;
 
   /// 로그인 화면(onboarding)
   static const login = _Paths.login;
@@ -39,7 +40,8 @@ abstract class Routes {
 abstract class _Paths {
   _Paths._();
 
-  static const onboarding = "/onboarding";
+  static const liveType = "/liveType";
+  static const address = "/address";
 
   /// 로그인 화면
   static const login = "/login";
