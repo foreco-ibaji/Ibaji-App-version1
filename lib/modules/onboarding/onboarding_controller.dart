@@ -1,7 +1,18 @@
 import 'package:get/get.dart';
 import 'package:ibaji/resources/resources.dart';
 
-class OnboardingController extends GetxController {}
+import '../../util/routes/routes.dart';
+
+class OnboardingController extends GetxController {
+  Rx<ResidentType?> selectType = Rxn(null);
+
+  void goNextOnboardingStep() {
+    Get.toNamed(Routes.login);
+  }
+  void setResidentType(ResidentType type) {
+    selectType.value = type;
+  }
+}
 
 enum ResidentType {
   single(
