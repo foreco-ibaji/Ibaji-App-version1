@@ -7,6 +7,7 @@ import 'package:ibaji/util/app_text_styles.dart';
 import 'package:ibaji/util/global_variables.dart';
 
 import '../../../util/global_button_widget.dart';
+import '../widget/onboarding_title_widget.dart';
 
 class LiveTypeScreen extends GetView<LiveTypeController> {
   const LiveTypeScreen({super.key});
@@ -34,24 +35,9 @@ class LiveTypeScreen extends GetView<LiveTypeController> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
-                height: 106.w,
-              ),
-              Text(
-                '거주형태가\n어떻게 되시나요?',
-                style: AppTextStyles.heading2Bold,
-              ),
-              SizedBox(
-                height: 10.w,
-              ),
-              Text(
-                '거주 형태에 따른 맞춤별 배출법을 알 수 있어요',
-                style: AppTextStyles.title2Medium.copyWith(
-                  color: AppColors.grey5,
-                ),
-              ),
-              SizedBox(
-                height: 40.w,
+              const OnboardingTitleWidget(
+                title: '거주형태가\n어떻게 되시나요?',
+                subtitle: '거주 형태에 따른 맞춤별 배출법을 알 수 있어요',
               ),
               Row(
                 children: [

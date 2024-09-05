@@ -15,6 +15,7 @@ import 'package:ibaji/util/app_colors.dart';
 import 'package:ibaji/util/routes/routes.dart';
 import 'package:kakao_flutter_sdk_user/kakao_flutter_sdk_user.dart';
 import 'package:logger/logger.dart';
+import 'modules/onboarding/live_type/live_type_screen.dart';
 import 'util/routes/pages.dart';
 
 void main() async {

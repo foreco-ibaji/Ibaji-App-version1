@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 import '../../../util/app_colors.dart';
 import '../../../util/app_text_styles.dart';
 import '../../../util/global_button_widget.dart';
+import '../../../util/widget/global_text_field.dart';
+import '../widget/onboarding_title_widget.dart';
 import 'address_controller.dart';
 
 class AddressScreen extends GetView<AddressController> {
@@ -33,25 +35,17 @@ class AddressScreen extends GetView<AddressController> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
-                height: 106.w,
+              const OnboardingTitleWidget(
+                title: '어느 동네에\n거주하고 계시나요?',
+                subtitle: '거주하고계신 동네에 맞는 배출법을 알려드릴게요',
               ),
-              Text(
-                '어느 동네에\n거주하고 계시나요?',
-                style: AppTextStyles.heading2Bold,
-              ),
-              SizedBox(
-                height: 10.w,
-              ),
-              Text(
-                '거주하고계신 동네에 맞는 배출법을 알려드릴게요',
-                style: AppTextStyles.title2Medium.copyWith(
-                  color: AppColors.grey5,
-                ),
-              ),
-              SizedBox(
-                height: 40.w,
-              ),
+              GlobalSearchField.address(
+                textStatus: controller.searchStatus,
+                textController: controller.searchController,
+                onSubmit: controller.onSearch,
+                onChange: controller.onSearch,
+                onClear: controller.onClear,
+              )
             ],
           ),
         ),

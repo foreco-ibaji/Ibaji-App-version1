@@ -24,12 +24,14 @@ class LoginController extends GetxController {
       OAuthToken token = install
           ? await UserApi.instance.loginWithKakaoTalk()
           : await UserApi.instance.loginWithKakaoAccount();
-      Member tmpResult =
-          await LoginApi.getMemberSignIn(token: token.accessToken) ?? tmpMember;
+      var result = await LoginApi.setKakaoLogin(kakaoToken: token.accessToken, type: "MULTI");
 
-      GetStorageUtil.setToken(StorageKey.JWT_TOKEN, tmpResult.accessToken);
-      GetStorageUtil.setToken(StorageKey.REFRESH_TOKEN, tmpResult.refreshToken);
-      DioServices().setToken(tmpResult.accessToken);
+      // Member tmpResult =
+      //     await LoginApi.getMemberSignIn(token: token.accessToken) ?? tmpMember;
+      //
+      // GetStorageUtil.setToken(StorageKey.JWT_TOKEN, tmpResult.accessToken);
+      // GetStorageUtil.setToken(StorageKey.REFRESH_TOKEN, tmpResult.refreshToken);
+      // DioServices().setToken(tmpResult.accessToken);
 
       ///* 임시 라우팅
       await Get.toNamed(Routes.main);

@@ -5,6 +5,7 @@ class Svgs {
 
   static const String bowl = 'asset/image/icon/Bowl.svg';
   static const String clam = 'asset/image/icon/Clam.svg';
+  static const String close = 'asset/image/icon/Close.svg';
   static const String link = 'asset/image/icon/Link.svg';
   static const String search = 'asset/image/icon/Search.svg';
   static const String tape = 'asset/image/icon/Tape.svg';

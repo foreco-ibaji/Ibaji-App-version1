@@ -58,4 +58,13 @@ class LoginApi {
         .get("/jwt/refresh", queryParameters: {"refreshToken": refreshToken});
     // return
   }
+
+  static Future<void> setKakaoLogin({
+    required String kakaoToken,
+    String region = "서울특별시 인헌3길 42",
+    required String type,
+  }) async {
+    await DioServices().to().get("/account/kakao/result",
+        queryParameters: {"token": kakaoToken, "region": region, "type": type});
+  }
 }

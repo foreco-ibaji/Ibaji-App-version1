@@ -33,6 +33,7 @@ class GlobalSearchField extends StatelessWidget {
   final bool isPlain;
   final String suffixActiveIcon;
   final String suffixUnActiveIcon;
+  final Color suffixColor;
 
   const GlobalSearchField({
     super.key,
@@ -46,8 +47,9 @@ class GlobalSearchField extends StatelessWidget {
     required this.onChanged,
     required this.suffixOnTap,
     this.isPlain = false,
-    this.suffixActiveIcon = "search_cancel_22",
-    this.suffixUnActiveIcon = "search_cancel_22",
+    this.suffixActiveIcon = Svgs.close,
+    this.suffixUnActiveIcon = Svgs.close,
+    required this.suffixColor,
   });
 
   @override
@@ -111,14 +113,10 @@ class GlobalSearchField extends StatelessWidget {
                   textStatus.value = SEARCH_STATUS.INIT;
                 }
               },
-              child: Obx(
-                () => Padding(
-                    padding: EdgeInsets.only(right: 14.w),
-                    child: SvgPicture.asset(suffixActiveIcon,
-                        color: textStatus.value == SEARCH_STATUS.INIT
-                            ? AppColors.grey1
-                            : AppColors.primary6)),
-              ),
+              child: Padding(
+                  padding: EdgeInsets.only(right: 14.w),
+                  child:
+                      SvgPicture.asset(suffixActiveIcon, color: suffixColor)),
             ),
             //자동 키보드 활성화
             autofocus: isSearchScreen ? true : false,
@@ -153,10 +151,35 @@ class GlobalSearchField extends StatelessWidget {
       alwaysSuffix: true,
       hasPrefix: false,
       suffixActiveIcon: Svgs.send,
+      suffixColor: textStatus.value == SEARCH_STATUS.INIT
+          ? AppColors.grey1
+          : AppColors.primary6,
       onSubmitted: onSubmit,
       onChanged: onChange,
       textStatus: textStatus,
       suffixOnTap: onSubmit,
+    );
+  }
+
+  factory GlobalSearchField.address({
+    required TextEditingController textController,
+    required Rx<SEARCH_STATUS> textStatus,
+    required Future<void> Function(String) onSubmit,
+    required Future<void> Function(String) onChange,
+    required Future<void> Function(String) onClear,
+  }) {
+    return GlobalSearchField(
+      isSearchScreen: false,
+      textController: textController,
+      placeHolder: "주소를 입력해주세요",
+      alwaysSuffix: false,
+      hasPrefix: false,
+      suffixActiveIcon: Svgs.close,
+      suffixColor: AppColors.grey1,
+      onSubmitted: onSubmit,
+      onChanged: onChange,
+      textStatus: textStatus,
+      suffixOnTap: onClear,
     );
   }
 }
