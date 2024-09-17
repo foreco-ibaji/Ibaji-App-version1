@@ -14,6 +14,7 @@ Widget AnswerChip({required String text}) {
     color: AppColors.grey3,
     strokeWidth: 1,
     corner: FDottedLineCorner.all(20),
+
     /// add widget
     child: IntrinsicHeight(
       child: Container(
@@ -25,14 +26,13 @@ Widget AnswerChip({required String text}) {
         child: Text(
           text,
           style: AppTextStyles.title3Bold.copyWith(color: AppColors.grey4),
-          textHeightBehavior: TextHeightBehavior(applyHeightToFirstAscent: false),
-
+          textHeightBehavior:
+              TextHeightBehavior(applyHeightToFirstAscent: false),
         ),
       ),
     ),
   );
 }
-
 
 Widget AnswerSelectChip({required String text}) {
   return IntrinsicHeight(
@@ -66,10 +66,10 @@ Widget MissionInfoChip(
             ? SizedBox(
                 width: 18.h,
                 child: SvgPicture.asset(
-                  iconDir + "ic_${imgDir}.svg",
+                  imgDir,
                   height: 14.h,
                 ))
-            : SizedBox.shrink(),
+            : const SizedBox.shrink(),
         Text(
           text,
           style: AppTextStyles.body2SemiBold.copyWith(color: AppColors.grey1),

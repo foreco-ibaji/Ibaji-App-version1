@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:ibaji/modules/mission_detail/view/mission_result_view.dart';
+import 'package:ibaji/resources/resources.dart';
 import 'package:ibaji/util/app_text_styles.dart';
 import 'package:ibaji/util/widget/global_skeleton.dart';
 import '../../../provider/api/mission_api.dart';
@@ -42,7 +43,7 @@ class MissionDetailScreen extends GetView<MissionDetailController> {
                         backgroundColor: AppColors.grey9,
                         text:
                             "${controller.missionDetail.value.missionInfo.rewardPoint}",
-                        imgDir: "mission_money"),
+                        imgDir: Svgs.icMissionMoney,),
                     SizedBox(
                       width: 6.w,
                     ),

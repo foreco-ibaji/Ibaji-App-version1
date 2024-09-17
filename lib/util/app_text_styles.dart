@@ -6,6 +6,7 @@ class AppTextStyles {
   AppTextStyles._();
   static const _defaultTextColor = AppColors.grey9;
   static const _defaultFontFamily = 'Pretendard';
+  static const _defaultLetterSpacing = -0.5;
   static const _heading1Height = 45.0 / 30.0;
   static const _heading2Height = 36.0 / 24.0;
   static const _heading3Height = 30.0 / 20.0;
@@ -29,6 +30,7 @@ class AppTextStyles {
     fontSize: 24.sp,
     fontWeight: FontWeight.w700,
     height: _heading2Height,
+    letterSpacing: _defaultLetterSpacing,
   );
 
   static var heading3Bold = TextStyle(
@@ -47,6 +49,7 @@ class AppTextStyles {
     fontSize: 18.sp,
     fontWeight: FontWeight.w700,
     height: _title1Height,
+    letterSpacing: _defaultLetterSpacing,
   );
   static var title1SemiBold = title1Bold.copyWith(fontWeight: FontWeight.w600);
   static var title1Medium = title1Bold.copyWith(fontWeight: FontWeight.w500);
@@ -57,6 +60,8 @@ class AppTextStyles {
     fontSize: 16.sp,
     fontWeight: FontWeight.w700,
     height: _title2Height,
+    letterSpacing: _defaultLetterSpacing,
+
   );
   static var title2SemiBold = title2Bold.copyWith(fontWeight: FontWeight.w600);
   static var title2Medium = title2Bold.copyWith(fontWeight: FontWeight.w500);
@@ -68,6 +73,8 @@ class AppTextStyles {
     fontSize: 14.sp,
     fontWeight: FontWeight.w700,
     height: _title3Height,
+    letterSpacing: _defaultLetterSpacing,
+
   );
   static var title3SemiBold = title3Bold.copyWith(fontWeight: FontWeight.w600);
   static var title3Medium = title3Bold.copyWith(fontWeight: FontWeight.w500);

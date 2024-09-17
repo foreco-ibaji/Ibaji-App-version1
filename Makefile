@@ -8,7 +8,12 @@ DART := $(FLUTTER_BIN_DIR)/cache/dart-sdk/bin/dart
 
 buildRunner:
 	@echo "Run Pub build runner"
-	@flutter packages pub run build_runner build --delete-conflicting-outputs
+	@dart run build_runner build --delete-conflicting-outputs
+  
+spider:
+	@echo "Run Spider"
+	@spider build --verbose
+	@cd test && rm images_test.dart && rm svgs_test.dart
 
 cacheCleanMchip:
 	@echo "🧹 Cleaning caches of the app🧹"

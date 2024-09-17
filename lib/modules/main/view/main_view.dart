@@ -6,6 +6,7 @@ import 'package:ibaji/modules/camera/view/camera_view.dart';
 import 'package:ibaji/modules/home/view/home_view.dart';
 import 'package:ibaji/modules/mission/view/mission_view.dart';
 import 'package:ibaji/modules/mypage/view/my_page_view.dart';
+import '../../../resources/resources.dart';
 import '../../../util/app_colors.dart';
 import '../../../util/app_text_styles.dart';
 import '../../../util/global_variables.dart';
@@ -37,10 +38,22 @@ class MainScreen extends GetView<MainController> {
           unselectedLabelStyle:
               AppTextStyles.title2Bold.copyWith(color: AppColors.grey3),
           items: [
-            bottomNaviItem(iconUrl: 'home', naviText: '홈'),
-            bottomNaviItem(iconUrl: 'camera', naviText: '카메라'),
-            bottomNaviItem(iconUrl: 'mission', naviText: "미션"),
-            bottomNaviItem(iconUrl: 'my', naviText: "마이")
+            bottomNaviItem(
+                selectIcon: Svgs.icHome24,
+                unSelectIcon: Svgs.icHome24Unable,
+                naviText: '홈'),
+            bottomNaviItem(
+                selectIcon: Svgs.icBottomCamera32,
+                unSelectIcon: Svgs.icBottomCameraUnable,
+                naviText: '카메라'),
+            bottomNaviItem(
+                selectIcon: Svgs.icBottomMission32,
+                unSelectIcon: Svgs.icBottomMissionUnable,
+                naviText: "미션"),
+            bottomNaviItem(
+                selectIcon: Svgs.icBottomMy,
+                unSelectIcon: Svgs.icBottomMyUnable,
+                naviText: "마이"),
           ],
         ),
       ),
@@ -49,16 +62,17 @@ class MainScreen extends GetView<MainController> {
 }
 
 BottomNavigationBarItem bottomNaviItem({
-  required String iconUrl,
+  required String selectIcon,
+  required String unSelectIcon,
   required String naviText,
 }) {
   return BottomNavigationBarItem(
       icon: SvgPicture.asset(
-        "${iconDir}ic_bottom_${iconUrl}_unable.svg",
+        unSelectIcon,
         height: 32.h,
       ),
       activeIcon: SvgPicture.asset(
-        "${iconDir}ic_bottom_${iconUrl}.svg",
+        selectIcon,
         height: 32.h,
       ),
       backgroundColor: AppColors.white,

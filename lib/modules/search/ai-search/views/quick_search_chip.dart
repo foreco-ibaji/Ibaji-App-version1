@@ -29,7 +29,7 @@ class QuickSearchChip extends StatelessWidget {
         ),
         child: Row(
           children: [
-            SvgPicture.asset("$iconDir${quickChip.iconUrl}.svg"),
+            SvgPicture.asset(quickChip.iconUrl),
             SizedBox(
               width: 6.w,
             ),

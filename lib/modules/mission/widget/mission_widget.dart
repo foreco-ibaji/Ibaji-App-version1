@@ -10,6 +10,7 @@ import 'package:url_launcher/url_launcher_string.dart';
 
 import '../../../model/enum/level_type.dart';
 import '../../../model/mission/mission.dart';
+import '../../../resources/resources.dart';
 import '../../../util/app_colors.dart';
 import '../../../util/global_button_widget.dart';
 import '../../../util/global_variables.dart';
@@ -107,14 +108,14 @@ class MissionListTile extends StatelessWidget {
                 Row(
                   children: [
                     MissionInfo(
-                      icon: "money",
+                      icon: Svgs.icMissionMoney,
                       value: "${mission.rewardPoint}",
                     ),
                     SizedBox(
                       width: 8.w,
                     ),
                     MissionInfo(
-                      icon: "count",
+                      icon: Svgs.icMissionCount,
                       value:
                           "${mission.totalNumberOfParticipating}/${mission.totalCount} 참여중",
                     ),
@@ -143,7 +144,7 @@ Widget MissionInfo({
     crossAxisAlignment: CrossAxisAlignment.center,
     children: [
       SvgPicture.asset(
-        "${iconDir}ic_mission_${icon}.svg",
+        icon,
         width: 15.w,
       ),
       SizedBox(
@@ -165,7 +166,7 @@ Widget SelectTypeChip({
   bool isIcon = false,
 }) {
   return Obx(
-    ()=> Container(
+    () => Container(
       padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 6.h),
       decoration: BoxDecoration(
           color: isSelect.value ? AppColors.grey9 : AppColors.grey1,
@@ -176,15 +177,15 @@ Widget SelectTypeChip({
         children: [
           Text(
             value,
-            style: AppTextStyles.title3SemiBold
-                .copyWith(color: isSelect.value ? AppColors.grey1 : AppColors.grey8),
+            style: AppTextStyles.title3SemiBold.copyWith(
+                color: isSelect.value ? AppColors.grey1 : AppColors.grey8),
           ),
           SizedBox(
             width: 4.w,
           ),
           isIcon
               ? SvgPicture.asset(
-                  "${iconDir}ic_arrow_down.svg",
+                  Svgs.icArrowDown,
                   width: 14.w,
                   // height: 21.h,
                   color: AppColors.grey9,
@@ -268,9 +269,7 @@ class LevelSelectSheet extends StatelessWidget {
               width: 4.w,
             ),
             SvgPicture.asset(
-              isSelect.value
-                  ? "${iconDir}ic_check_able.svg"
-                  : "${iconDir}ic_check_unable.svg",
+              isSelect.value ? Svgs.icCheckAble : Svgs.icCheckUnable,
               width: 20.w,
             ),
           ],

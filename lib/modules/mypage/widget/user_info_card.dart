@@ -7,6 +7,8 @@ import 'package:ibaji/util/app_text_styles.dart';
 import 'package:ibaji/util/extension.dart';
 import 'package:ibaji/util/global_variables.dart';
 
+import '../../../resources/resources.dart';
+
 class UserInfoCard extends StatelessWidget {
   /// 마이페이지의 유저정보를 나타내는 카드 UI
   const UserInfoCard(
@@ -79,7 +81,7 @@ class UserInfoCard extends StatelessWidget {
                   SizedBox(
                     width: 6.w,
                   ),
-                  SvgPicture.asset("${iconDir}ic_mission_money.svg")
+                  SvgPicture.asset(Svgs.icMissionMoney,),
                 ]),
           ],
         ));

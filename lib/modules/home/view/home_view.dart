@@ -7,6 +7,7 @@ import 'package:ibaji/modules/map/view/map_view.dart';
 import 'package:ibaji/util/app_colors.dart';
 import 'package:ibaji/util/app_text_styles.dart';
 import '../../../provider/service/map_service.dart';
+import '../../../resources/resources.dart';
 import '../../../util/global_variables.dart';
 import '../../../util/routes/routes.dart';
 import '../../search/basic-search/binding/search_binding.dart';
@@ -185,7 +186,7 @@ class HomeScreen extends GetView<HomeController> {
                               )
                             ],
                           ),
-                          SvgPicture.asset("${iconDir}Search.svg"),
+                          SvgPicture.asset(Svgs.search),
                         ],
                       ),
                     ),

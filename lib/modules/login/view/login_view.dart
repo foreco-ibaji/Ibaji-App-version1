@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:ibaji/modules/login/controller/login_controller.dart';
+import 'package:ibaji/resources/resources.dart';
 import 'package:ibaji/util/app_text_styles.dart';
 import '../../../util/app_colors.dart';
 import '../../../util/global_variables.dart';
@@ -19,8 +20,12 @@ class LoginScreen extends GetView<LoginController> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
-                child: Center(
-                    child: SvgPicture.asset("${imgDir}logo/ic_home_logo.svg"))),
+              child: Center(
+                child: SvgPicture.asset(
+                  Svgs.icHomeLogo,
+                ),
+              ),
+            ),
             GestureDetector(
               onTap: () async {
                 await controller.signInWithKakao();
@@ -35,7 +40,7 @@ class LoginScreen extends GetView<LoginController> {
                     borderRadius: BorderRadius.circular(10.r)),
                 child: Row(
                   children: [
-                    SvgPicture.asset("${imgDir}logo/ic_login_kakao_18.svg"),
+                    SvgPicture.asset(Svgs.icLoginKakao18),
                     Expanded(
                         child: Center(
                             child: Text(
